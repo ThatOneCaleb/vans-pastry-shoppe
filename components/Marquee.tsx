@@ -3,13 +3,14 @@
 import { useEffect, useRef } from "react";
 
 const items = [
-  "English Muffin Bread",
-  "Almond Pastries",
-  "Hot Cross Buns",
+  "Round English Muffin Bread",
+  "Dutch Banket",
+  "Dutch Crisp Cookies",
+  "It's Made Clean",
+  "No Preservatives",
   "Apple Fritters",
+  "Hot Cross Buns",
   "Paczki",
-  "Sugar Cinnamon Bread",
-  "Donuts",
   "Custom Cakes",
 ];
 

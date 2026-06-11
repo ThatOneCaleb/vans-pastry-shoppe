@@ -147,8 +147,10 @@ export default function Hero() {
         </h1>
 
         <p className="hero-sub hero-fade mt-5 max-w-sm font-inter text-[18px] leading-relaxed text-cream/80">
-          Four generations. The same recipes. The oldest bakery in Grand
-          Rapids.
+          Four generations. The same recipes. No preservatives.
+        </p>
+        <p className="hero-sub hero-fade mt-2 font-playfair text-[15px] italic text-gold/90">
+          It&rsquo;s made clean.
         </p>
 
         <div className="hero-buttons hero-fade mt-9 flex flex-wrap items-center gap-4">
