@@ -109,6 +109,7 @@ export default function Gallery() {
           {images.map((img) => (
             <div
               key={img.src}
+              data-skew
               className={`gallery-item group relative overflow-hidden ${
                 img.tall
                   ? "aspect-[3/4] sm:aspect-[2/3]"
@@ -128,12 +129,12 @@ export default function Gallery() {
 
         {/* Stats row */}
         <div className="gallery-stats mt-20 grid grid-cols-1 gap-12 border-t border-brown/10 pt-14 sm:grid-cols-3 sm:gap-6">
-          {stats.map((stat, i) => (
+          {stats.map((stat) => (
             <div key={stat.label} className="gallery-stat text-center">
               <p
-                className={`font-playfair text-[56px] font-bold italic leading-none md:text-[64px] ${
+                className={`font-playfair text-[56px] font-bold italic leading-none text-dutch-blue md:text-[64px] ${
                   stat.countTo ? "stat-count" : ""
-                } ${i === 2 ? "text-dutch-blue" : "text-gold"}`}
+                }`}
               >
                 {stat.value}
               </p>

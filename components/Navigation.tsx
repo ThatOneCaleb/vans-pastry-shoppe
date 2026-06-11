@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import Magnetic from "./Magnetic";
 
 const leftLinks = [
   { label: "Story", href: "#story" },
@@ -31,6 +32,27 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const } },
   exit: { opacity: 0, y: 12, transition: { duration: 0.2 } },
 };
+
+// Lusion-style rolling hover: the label slides up and out while a gold
+// duplicate rolls in from below.
+function RollingLink({ label, href }: { label: string; href: string }) {
+  return (
+    <a
+      href={href}
+      className="group relative block overflow-hidden font-inter text-[14px] leading-snug text-white"
+    >
+      <span className="block transition-transform duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full">
+        {label}
+      </span>
+      <span
+        aria-hidden="true"
+        className="absolute left-0 top-full block text-gold transition-transform duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-full"
+      >
+        {label}
+      </span>
+    </a>
+  );
+}
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -63,13 +85,7 @@ export default function Navigation() {
           {/* Left links — desktop */}
           <div className="hidden items-center gap-8 md:flex">
             {leftLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="font-inter text-[14px] text-white transition-colors duration-300 hover:text-gold"
-              >
-                {link.label}
-              </a>
+              <RollingLink key={link.label} label={link.label} href={link.href} />
             ))}
           </div>
 
@@ -113,18 +129,15 @@ export default function Navigation() {
 
           {/* Right — desktop */}
           <div className="hidden items-center gap-7 md:flex">
-            <a
-              href="#visit"
-              className="font-inter text-[14px] text-white transition-colors duration-300 hover:text-gold"
-            >
-              Find Us
-            </a>
-            <a
-              href="#order"
-              className="bg-dutch-blue px-5 py-2.5 font-inter text-[13px] font-medium tracking-wide text-warm-white transition-all duration-300 hover:bg-[#253c7a]"
-            >
-              Order Now
-            </a>
+            <RollingLink label="Find Us" href="#visit" />
+            <Magnetic strength={0.3}>
+              <a
+                href="#order"
+                className="block bg-dutch-blue px-5 py-2.5 font-inter text-[13px] font-medium tracking-wide text-warm-white transition-colors duration-300 hover:bg-[#253c7a]"
+              >
+                Order Now
+              </a>
+            </Magnetic>
           </div>
 
           {/* spacer to balance hamburger on mobile */}

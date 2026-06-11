@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { gsap } from "@/lib/gsap";
+import Magnetic from "./Magnetic";
 
 const HeroScene = dynamic(() => import("./HeroScene"), {
   ssr: false,
@@ -141,18 +142,22 @@ export default function Hero() {
         </p>
 
         <div className="hero-buttons hero-fade mt-9 flex flex-wrap items-center gap-4">
-          <a
-            href="#menu"
-            className="bg-gold px-7 py-3.5 font-inter text-[14px] font-medium tracking-wide text-brown transition-all duration-300 hover:bg-warm-white"
-          >
-            Explore Our Breads
-          </a>
-          <a
-            href="#story"
-            className="border border-gold px-7 py-3.5 font-inter text-[14px] font-medium tracking-wide text-gold transition-all duration-300 hover:bg-gold hover:text-brown"
-          >
-            Our Story
-          </a>
+          <Magnetic strength={0.3}>
+            <a
+              href="#menu"
+              className="block bg-gold px-7 py-3.5 font-inter text-[14px] font-medium tracking-wide text-brown transition-colors duration-300 hover:bg-warm-white"
+            >
+              Explore Our Breads
+            </a>
+          </Magnetic>
+          <Magnetic strength={0.3}>
+            <a
+              href="#story"
+              className="block border border-gold px-7 py-3.5 font-inter text-[14px] font-medium tracking-wide text-gold transition-colors duration-300 hover:bg-gold hover:text-brown"
+            >
+              Our Story
+            </a>
+          </Magnetic>
         </div>
       </div>
 

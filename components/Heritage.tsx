@@ -55,7 +55,10 @@ export default function Heritage() {
     >
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-14 px-6 lg:grid-cols-[55%_1fr] lg:gap-20 lg:px-12">
         {/* Image — left 55% */}
-        <div className="relative aspect-[4/5] overflow-hidden md:aspect-[5/4] lg:aspect-[4/5]">
+        <div
+          data-skew
+          className="relative aspect-[4/5] overflow-hidden md:aspect-[5/4] lg:aspect-[4/5]"
+        >
           <div className="heritage-img absolute -inset-y-10 inset-x-0">
             <Image
               src="/assets/vans-real-3.jpg"

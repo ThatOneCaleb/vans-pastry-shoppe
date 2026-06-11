@@ -12,12 +12,14 @@ import LocationHours from "@/components/LocationHours";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import HeritageStamp from "@/components/HeritageStamp";
+import VelocityEffects from "@/components/VelocityEffects";
 
 export default function Home() {
   return (
     <main>
       <CustomCursor />
       <HeritageStamp />
+      <VelocityEffects />
       <Navigation />
       <Hero />
       <Marquee />

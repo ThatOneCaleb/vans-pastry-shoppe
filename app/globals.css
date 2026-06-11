@@ -52,27 +52,6 @@ body {
   font-family: var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
-/* ---------- Marquee ---------- */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 30s linear infinite;
-  will-change: transform;
-}
-
-.marquee-wrap:hover .marquee-track {
-  animation-play-state: paused;
-}
-
 /* ---------- Map sepia treatment ---------- */
 .map-sepia iframe {
   filter: brightness(0.8) contrast(1.1) sepia(0.3);
@@ -118,8 +97,3 @@ input:focus-visible {
   outline-offset: 2px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-  }
-}
