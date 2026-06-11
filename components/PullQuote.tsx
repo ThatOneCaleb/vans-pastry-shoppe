@@ -44,9 +44,9 @@ export default function PullQuote() {
 
       <blockquote className="relative z-10 mx-auto max-w-3xl">
         {/* Real Van's logo as an authenticity mark */}
-        <div className="quote-reveal mx-auto mb-10 w-[150px] mix-blend-multiply md:w-[190px]">
+        <div className="quote-reveal mx-auto mb-10 w-[150px] md:w-[190px]">
           <Image
-            src="/assets/vans-real-0.jpg"
+            src="/assets/vans-logo-dark.png"
             alt="Van's Pastry Shoppe — home of famous Dutch Crisp and Banket"
             width={380}
             height={380}

@@ -17,45 +17,51 @@ export default function Hero() {
   const root = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
+    let onReveal: (() => void) | null = null;
+    let fallback: ReturnType<typeof setTimeout> | null = null;
+
     const ctx = gsap.context(() => {
       const ease = "power3.out";
 
-      gsap.fromTo(
-        ".hero-overline",
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.9, ease, delay: 0 }
-      );
+      // entrance waits for the preloader curtain ("vans:reveal") so the
+      // text animates in while the curtain is still lifting
+      const entrance = gsap.timeline({ paused: true });
+      entrance
+        .fromTo(
+          ".hero-overline",
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.9, ease },
+          0
+        )
+        .fromTo(
+          ".hero-word",
+          { opacity: 0, yPercent: 110 },
+          { opacity: 1, yPercent: 0, duration: 1, ease, stagger: 0.12 },
+          0.2
+        )
+        .fromTo(
+          ".hero-sub",
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.9, ease },
+          0.8
+        )
+        .fromTo(
+          ".hero-buttons",
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.9, ease },
+          1.1
+        )
+        .fromTo(
+          ".hero-scene",
+          { opacity: 0 },
+          { opacity: 1, duration: 2.2, ease: "power2.out" },
+          0.8
+        );
 
-      gsap.fromTo(
-        ".hero-word",
-        { opacity: 0, yPercent: 110 },
-        {
-          opacity: 1,
-          yPercent: 0,
-          duration: 1,
-          ease,
-          stagger: 0.12,
-          delay: 0.2,
-        }
-      );
-
-      gsap.fromTo(
-        ".hero-sub",
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.9, ease, delay: 0.8 }
-      );
-
-      gsap.fromTo(
-        ".hero-buttons",
-        { opacity: 0, y: 18 },
-        { opacity: 1, y: 0, duration: 0.9, ease, delay: 1.1 }
-      );
-
-      gsap.fromTo(
-        ".hero-scene",
-        { opacity: 0 },
-        { opacity: 1, duration: 2.2, ease: "power2.out", delay: 0.8 }
-      );
+      onReveal = () => entrance.play();
+      window.addEventListener("vans:reveal", onReveal, { once: true });
+      // safety net in case the preloader never fires
+      fallback = setTimeout(() => entrance.play(), 4000);
 
       // scroll-out choreography: image zooms slowly, content drifts up and fades
       gsap.to(".hero-bg", {
@@ -84,7 +90,11 @@ export default function Hero() {
       root.current?.classList.remove("gsap-prep");
     }, root);
 
-    return () => ctx.revert();
+    return () => {
+      if (onReveal) window.removeEventListener("vans:reveal", onReveal);
+      if (fallback) clearTimeout(fallback);
+      ctx.revert();
+    };
   }, []);
 
   return (

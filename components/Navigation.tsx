@@ -112,18 +112,18 @@ export default function Navigation() {
             />
           </button>
 
-          {/* Center logo — invert turns the black art white; screen drops the white box on the dark nav */}
+          {/* Center logo */}
           <a
             href="#"
             aria-label="Van's Pastry Shoppe — Home"
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           >
             <Image
-              src="/assets/vans-real-0.jpg"
+              src="/assets/vans-logo-white.png"
               alt="Van's Pastry Shoppe"
               width={240}
               height={240}
-              className="h-[48px] w-auto mix-blend-screen invert opacity-90 transition-opacity duration-300 hover:opacity-100"
+              className="h-[48px] w-auto opacity-90 transition-opacity duration-300 hover:opacity-100"
             />
           </a>
 
@@ -159,11 +159,11 @@ export default function Navigation() {
             <div className="flex flex-col items-center gap-7">
               <motion.div variants={itemVariants} className="mb-2">
                 <Image
-                  src="/assets/vans-real-0.jpg"
+                  src="/assets/vans-logo-white.png"
                   alt="Van's Pastry Shoppe"
                   width={240}
                   height={240}
-                  className="h-[64px] w-auto mix-blend-screen invert opacity-80"
+                  className="h-[64px] w-auto opacity-80"
                 />
               </motion.div>
               {mobileLinks.map((link) => (

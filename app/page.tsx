@@ -13,10 +13,13 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import HeritageStamp from "@/components/HeritageStamp";
 import VelocityEffects from "@/components/VelocityEffects";
+import Preloader from "@/components/Preloader";
+import Reviews from "@/components/Reviews";
 
 export default function Home() {
   return (
     <main>
+      <Preloader />
       <CustomCursor />
       <HeritageStamp />
       <VelocityEffects />
@@ -28,6 +31,7 @@ export default function Home() {
       <SignatureProducts />
       <Menu />
       <PullQuote />
+      <Reviews />
       <Gallery />
       <LocalPartners />
       <LocationHours />

@@ -49,13 +49,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
           {/* Col 1 — Brand */}
           <div>
-            {/* invert flips the black-on-white logo art to white; screen drops the black background against the dark footer */}
             <Image
-              src="/assets/vans-real-0.jpg"
+              src="/assets/vans-logo-white.png"
               alt="Van's Pastry Shoppe logo"
               width={300}
               height={300}
-              className="h-auto w-[140px] opacity-90 mix-blend-screen invert"
+              className="h-auto w-[140px] opacity-90"
             />
             <p className="mt-4 font-inter text-[14px] text-cream/60">
               Home of famous Dutch Crisp and Banket. Baked with love since

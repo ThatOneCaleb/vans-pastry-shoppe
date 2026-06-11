@@ -21,6 +21,13 @@
   --color-sage: var(--sage);
   --color-warm-white: var(--warm-white);
   --color-dutch-blue: var(--dutch-blue);
+  /* shadcn-style tokens mapped to the Van's palette */
+  --color-primary: var(--dutch-blue);
+  --color-card: var(--warm-white);
+  --color-card-foreground: var(--brown);
+  --color-border: #e8e0d2;
+  --color-muted: #f0e9dc;
+  --color-muted-foreground: #6f5b41;
   --font-playfair: var(--font-playfair);
   --font-inter: var(--font-inter);
 }
