@@ -107,9 +107,18 @@ export function AnimatedTestimonials({
           <motion.div variants={itemVariants} className="flex flex-col justify-center">
             <div className="space-y-6">
               {badgeText && (
-                <div className="inline-flex items-center border border-dutch-blue/25 bg-primary/5 px-3 py-1 font-inter text-[11px] uppercase tracking-[0.18em] text-primary">
-                  <Star className="mr-2 h-3.5 w-3.5 fill-gold text-gold" />
-                  <span>{badgeText}</span>
+                <div className="inline-flex flex-col gap-3 border-l-[3px] border-dutch-blue pl-5 py-1">
+                  <div className="flex items-center gap-1">
+                    {Array(5).fill(0).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-gold text-gold" />
+                    ))}
+                  </div>
+                  <p className="font-playfair text-[28px] font-bold italic leading-none text-dutch-blue md:text-[34px]">
+                    #1 of 27 Bakeries
+                  </p>
+                  <p className="font-inter text-[11px] uppercase tracking-[0.22em] text-dutch-blue/70">
+                    in Grand Rapids &nbsp;&middot;&nbsp; Tripadvisor
+                  </p>
                 </div>
               )}
 
